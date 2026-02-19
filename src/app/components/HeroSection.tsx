@@ -11,7 +11,7 @@ export function HeroSection() {
         {[...Array(20)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-blue-500 rounded-full"
+            className="absolute w-1 h-1 bg-brand-primary rounded-full"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -31,8 +31,11 @@ export function HeroSection() {
       </div>
 
       {/* Gradient orbs */}
-      <div className="absolute top-20 left-10 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+      <div className="absolute top-20 left-10 w-96 h-96 bg-brand-primary/20 rounded-full blur-3xl animate-pulse" />
+      <div
+        className="absolute bottom-20 right-10 w-96 h-96 bg-brand-secondary/20 rounded-full blur-3xl animate-pulse"
+        style={{ animationDelay: "1s" }}
+      />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -49,15 +52,17 @@ export function HeroSection() {
               transition={{ delay: 0.2 }}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6"
             >
-              <Sparkles className="w-4 h-4 text-blue-400" />
-              <span className="text-sm text-blue-300">Peer-to-Peer Learning Platform</span>
+              <Sparkles className="w-4 h-4 text-brand-primary" />
+              <span className="text-sm text-brand-primary">
+                Peer-to-Peer Learning Platform
+              </span>
             </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-5xl md:text-6xl lg:text-7xl mb-6 bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent"
+              className="text-5xl md:text-6xl lg:text-7xl mb-6 bg-gradient-to-r from-white via-white/90 to-brand-primary bg-clip-text text-transparent"
               style={{ fontWeight: 800, lineHeight: 1.1 }}
             >
               Exchange Skills.
@@ -71,10 +76,11 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0"
+              className="text-lg md:text-xl text-neutral-400 mb-8 max-w-2xl mx-auto lg:mx-0"
             >
-              Join SkillBarter - the revolutionary platform where students teach what they know,
-              earn credits, and unlock unlimited learning opportunities through our credit-based barter system.
+              Join SkillBarter - the revolutionary platform where students teach
+              what they know, earn credits, and unlock unlimited learning
+              opportunities through our credit-based barter system.
             </motion.p>
 
             <motion.div
@@ -84,17 +90,23 @@ export function HeroSection() {
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
               <Link to="/teach">
-                <button className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/50">
-                  <span className="relative z-10 flex items-center justify-center gap-2 text-white" style={{ fontWeight: 600 }}>
+                <button className="group relative px-8 py-4 bg-brand-primary rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-brand-primary/20">
+                  <span
+                    className="relative z-10 flex items-center justify-center gap-2 text-background"
+                    style={{ fontWeight: 600 }}
+                  >
                     Start Teaching
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-brand-primary to-brand-secondary opacity-0 group-hover:opacity-100 transition-opacity" />
                 </button>
               </Link>
 
               <Link to="/skills">
-                <button className="px-8 py-4 rounded-xl border-2 border-blue-500/50 text-white hover:bg-blue-500/10 transition-all duration-300 hover:border-blue-400" style={{ fontWeight: 600 }}>
+                <button
+                  className="px-8 py-4 rounded-xl border border-neutral-800 text-white hover:bg-neutral-900/40 transition-all duration-300 hover:border-brand-primary/50"
+                  style={{ fontWeight: 600 }}
+                >
                   Explore Skills
                 </button>
               </Link>
@@ -113,8 +125,13 @@ export function HeroSection() {
                 { value: "50K+", label: "Sessions" },
               ].map((stat, idx) => (
                 <div key={idx} className="text-center">
-                  <div className="text-2xl md:text-3xl text-white mb-1" style={{ fontWeight: 700 }}>{stat.value}</div>
-                  <div className="text-sm text-gray-400">{stat.label}</div>
+                  <div
+                    className="text-2xl md:text-3xl text-white mb-1"
+                    style={{ fontWeight: 700 }}
+                  >
+                    {stat.value}
+                  </div>
+                  <div className="text-sm text-neutral-400">{stat.label}</div>
                 </div>
               ))}
             </motion.div>
@@ -128,10 +145,17 @@ export function HeroSection() {
               title="Profile"
               content={
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-400 to-purple-500" />
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-brand-primary to-brand-secondary" />
                   <div>
-                    <div className="text-white mb-1" style={{ fontWeight: 600 }}>Sarah Chen</div>
-                    <div className="text-xs text-gray-400">Web Development Expert</div>
+                    <div
+                      className="text-white mb-1"
+                      style={{ fontWeight: 600 }}
+                    >
+                      Sarah Chen
+                    </div>
+                    <div className="text-xs text-neutral-400">
+                      Web Development Expert
+                    </div>
                   </div>
                 </div>
               }
@@ -143,10 +167,14 @@ export function HeroSection() {
               title="Skill Listing"
               content={
                 <div>
-                  <div className="text-white mb-2" style={{ fontWeight: 600 }}>React & TypeScript</div>
+                  <div className="text-white mb-2" style={{ fontWeight: 600 }}>
+                    React & TypeScript
+                  </div>
                   <div className="flex items-center gap-2 text-sm">
-                    <span className="px-2 py-1 rounded-md bg-green-500/20 text-green-400 text-xs">Available</span>
-                    <span className="text-gray-400">25 credits/hour</span>
+                    <span className="px-2 py-1 rounded-md bg-green-500/20 text-green-400 text-xs">
+                      Available
+                    </span>
+                    <span className="text-neutral-400">25 credits/hour</span>
                   </div>
                 </div>
               }
@@ -158,10 +186,15 @@ export function HeroSection() {
               title="Credit Balance"
               content={
                 <div>
-                  <div className="text-3xl text-transparent bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text mb-1" style={{ fontWeight: 700 }}>
+                  <div
+                    className="text-3xl text-transparent bg-gradient-to-r from-brand-primary to-brand-secondary bg-clip-text mb-1"
+                    style={{ fontWeight: 700 }}
+                  >
                     <CountUp end={1250} />
                   </div>
-                  <div className="text-sm text-gray-400">Available Credits</div>
+                  <div className="text-sm text-neutral-400">
+                    Available Credits
+                  </div>
                 </div>
               }
             />
@@ -172,9 +205,15 @@ export function HeroSection() {
               title="Next Session"
               content={
                 <div>
-                  <div className="text-white mb-1" style={{ fontWeight: 600 }}>Python Basics</div>
-                  <div className="text-sm text-gray-400">Tomorrow at 3:00 PM</div>
-                  <div className="mt-2 text-xs text-blue-400">Google Meet</div>
+                  <div className="text-white mb-1" style={{ fontWeight: 600 }}>
+                    Python Basics
+                  </div>
+                  <div className="text-sm text-neutral-400">
+                    Tomorrow at 3:00 PM
+                  </div>
+                  <div className="mt-2 text-xs text-brand-primary">
+                    Google Meet
+                  </div>
                 </div>
               }
             />
@@ -189,7 +228,7 @@ export function HeroSection() {
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
       >
         <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2">
-          <div className="w-1 h-2 bg-white/50 rounded-full" />
+          <div className="w-1 h-2 bg-neutral-900/400 rounded-full" />
         </div>
       </motion.div>
     </section>

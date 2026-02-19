@@ -10,7 +10,7 @@ const testimonials = [
     avatar: "AJ",
     rating: 5,
     text: "SkillBarter changed my college experience! I taught Python and learned graphic design without spending a dime. The credit system is genius!",
-    skills: "Taught: Python • Learned: Design"
+    skills: "Taught: Python • Learned: Design",
   },
   {
     name: "Maria Garcia",
@@ -18,7 +18,7 @@ const testimonials = [
     avatar: "MG",
     rating: 5,
     text: "I was skeptical at first, but after my first session teaching Spanish, I was hooked. The community is amazing and everyone is genuinely here to help.",
-    skills: "Taught: Spanish • Learned: Marketing"
+    skills: "Taught: Spanish • Learned: Marketing",
   },
   {
     name: "David Chen",
@@ -26,7 +26,7 @@ const testimonials = [
     avatar: "DC",
     rating: 5,
     text: "The video integration is seamless. I've had over 50 sessions teaching web dev and learning music production. Best decision ever!",
-    skills: "Taught: Web Dev • Learned: Music"
+    skills: "Taught: Web Dev • Learned: Music",
   },
   {
     name: "Sarah Williams",
@@ -34,7 +34,7 @@ const testimonials = [
     avatar: "SW",
     rating: 5,
     text: "As an art student, I never thought I could afford coding lessons. SkillBarter made it possible by letting me teach illustration in exchange!",
-    skills: "Taught: Illustration • Learned: Coding"
+    skills: "Taught: Illustration • Learned: Coding",
   },
   {
     name: "James Park",
@@ -42,8 +42,8 @@ const testimonials = [
     avatar: "JP",
     rating: 5,
     text: "The platform is incredibly well-designed. Scheduling is easy, payments are automatic via credits, and I've met some brilliant people.",
-    skills: "Taught: Economics • Learned: Photography"
-  }
+    skills: "Taught: Economics • Learned: Photography",
+  },
 ];
 
 export function Testimonials() {
@@ -63,19 +63,23 @@ export function Testimonials() {
         breakpoint: 1024,
         settings: {
           slidesToShow: 2,
-        }
+        },
       },
       {
         breakpoint: 640,
         settings: {
           slidesToShow: 1,
-        }
-      }
-    ]
+        },
+      },
+    ],
   };
 
   return (
-    <section id="testimonials" ref={ref} className="py-24 bg-gradient-to-b from-[#0a0e27] to-[#050816] relative overflow-hidden">
+    <section
+      id="testimonials"
+      ref={ref}
+      className="py-24 bg-neutral-950 relative overflow-hidden"
+    >
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -83,10 +87,18 @@ export function Testimonials() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl mb-4 text-white" style={{ fontWeight: 700 }}>
+          <div className="inline-block px-4 py-1.5 mb-4 rounded-full border border-brand-primary/20 bg-brand-primary/5">
+            <span className="text-brand-primary text-sm font-semibold tracking-wider uppercase">
+              Endorsements
+            </span>
+          </div>
+          <h2
+            className="text-4xl md:text-5xl mb-4 text-white"
+            style={{ fontWeight: 700 }}
+          >
             Student Success Stories
           </h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          <p className="text-xl text-neutral-400 max-w-2xl mx-auto">
             Real experiences from our community of learners and teachers
           </p>
         </motion.div>
@@ -95,37 +107,49 @@ export function Testimonials() {
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-7xl mx-auto"
+          className="max-w-7xl mx-auto testimonial-slider"
         >
           <Slider {...settings}>
             {testimonials.map((testimonial, idx) => (
-              <div key={idx} className="px-3">
-                <div className="glass-strong rounded-2xl p-6 h-full hover:bg-white/10 transition-all duration-300">
+              <div key={idx} className="px-3 py-4">
+                <div className="glass-strong rounded-2xl p-8 h-full border border-white/5 bg-neutral-900/40 hover:bg-neutral-900 hover:border-brand-primary/20 transition-all duration-300 group">
                   {/* Rating */}
-                  <div className="flex gap-1 mb-4">
+                  <div className="flex gap-1 mb-6">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                      <Star
+                        key={i}
+                        className="w-4 h-4 fill-brand-secondary text-brand-secondary"
+                      />
                     ))}
                   </div>
 
                   {/* Testimonial text */}
-                  <p className="text-gray-300 mb-6 leading-relaxed text-sm">
+                  <p className="text-neutral-300 mb-8 leading-relaxed text-sm italic">
                     "{testimonial.text}"
                   </p>
 
                   {/* Skills */}
-                  <div className="mb-4 pb-4 border-b border-white/10">
-                    <p className="text-xs text-blue-400">{testimonial.skills}</p>
+                  <div className="mb-6 pb-6 border-b border-white/5">
+                    <p className="text-xs font-bold text-brand-primary uppercase tracking-widest">
+                      {testimonial.skills}
+                    </p>
                   </div>
 
                   {/* Author */}
-                  <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-white" style={{ fontWeight: 600 }}>
+                  <div className="flex items-center gap-4">
+                    <div
+                      className="w-12 h-12 rounded-full bg-gradient-to-br from-brand-primary to-brand-primary/40 flex items-center justify-center text-background shadow-lg shadow-brand-primary/20"
+                      style={{ fontWeight: 700 }}
+                    >
                       {testimonial.avatar}
                     </div>
                     <div>
-                      <div className="text-white" style={{ fontWeight: 600 }}>{testimonial.name}</div>
-                      <div className="text-sm text-gray-400">{testimonial.role}</div>
+                      <div className="text-white font-bold">
+                        {testimonial.name}
+                      </div>
+                      <div className="text-sm text-neutral-500">
+                        {testimonial.role}
+                      </div>
                     </div>
                   </div>
                 </div>

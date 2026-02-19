@@ -109,7 +109,7 @@ export default function Credits() {
           <Coins className="w-8 h-8 text-yellow-400" />
           Credit Balance
         </h1>
-        <p className="text-gray-400">
+        <p className="text-neutral-400">
           Track your earned and spent credits from skill exchange sessions
         </p>
       </motion.div>
@@ -126,33 +126,33 @@ export default function Credits() {
           <div className="absolute top-0 right-0 w-64 h-64 bg-yellow-500/10 rounded-full blur-3xl" />
           
           <div className="relative">
-            <p className="text-gray-300 mb-2">Current Balance</p>
+            <p className="text-neutral-300 mb-2">Current Balance</p>
             <div className="flex items-baseline gap-2 mb-6">
               <span className="text-6xl font-bold text-yellow-400">{currentBalance}</span>
-              <span className="text-2xl text-gray-400">credits</span>
+              <span className="text-2xl text-neutral-400">credits</span>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-white/5 backdrop-blur-xl rounded-lg p-4 border border-white/10">
+              <div className="bg-neutral-900/40 backdrop-blur-xl rounded-lg p-4 border border-neutral-800">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-10 h-10 rounded-lg bg-green-500/20 flex items-center justify-center">
                     <TrendingUp className="w-5 h-5 text-green-400" />
                   </div>
                   <div>
-                    <p className="text-sm text-gray-400">Total Earned</p>
+                    <p className="text-sm text-neutral-400">Total Earned</p>
                     <p className="text-2xl font-bold text-green-400">{totalEarned}</p>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-white/5 backdrop-blur-xl rounded-lg p-4 border border-white/10">
+              <div className="bg-neutral-900/40 backdrop-blur-xl rounded-lg p-4 border border-neutral-800">
                 <div className="flex items-center gap-3 mb-2">
-                  <div className="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center">
-                    <TrendingDown className="w-5 h-5 text-blue-400" />
+                  <div className="w-10 h-10 rounded-lg bg-brand-primary/20 flex items-center justify-center">
+                    <TrendingDown className="w-5 h-5 text-brand-primary" />
                   </div>
                   <div>
-                    <p className="text-sm text-gray-400">Total Spent</p>
-                    <p className="text-2xl font-bold text-blue-400">{totalSpent}</p>
+                    <p className="text-sm text-neutral-400">Total Spent</p>
+                    <p className="text-2xl font-bold text-brand-primary">{totalSpent}</p>
                   </div>
                 </div>
               </div>
@@ -168,15 +168,15 @@ export default function Credits() {
         transition={{ delay: 0.2 }}
         className="mb-8"
       >
-        <Card className="bg-white/5 backdrop-blur-xl border-white/10 p-6">
+        <Card className="bg-neutral-900/40 backdrop-blur-xl border-neutral-800 p-6">
           <h2 className="text-xl font-semibold mb-6">Monthly Overview</h2>
           
           <div className="space-y-4">
             {monthlyData.map((data, index) => (
               <div key={data.month} className="space-y-2">
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-gray-400">{data.month} 2026</span>
-                  <span className="text-gray-300">
+                  <span className="text-neutral-400">{data.month} 2026</span>
+                  <span className="text-neutral-300">
                     Net: {data.earned - data.spent > 0 ? '+' : ''}{data.earned - data.spent} credits
                   </span>
                 </div>
@@ -188,7 +188,7 @@ export default function Credits() {
                     +{data.earned}
                   </div>
                   <div
-                    className="bg-blue-500/30 border border-blue-500/50 rounded flex items-center justify-center text-xs font-medium"
+                    className="bg-brand-primary/30 border border-brand-primary/50 rounded flex items-center justify-center text-xs font-medium"
                     style={{ width: `${(data.spent / (data.earned + data.spent)) * 100}%` }}
                   >
                     -{data.spent}
@@ -206,7 +206,7 @@ export default function Credits() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
       >
-        <Card className="bg-white/5 backdrop-blur-xl border-white/10 p-6">
+        <Card className="bg-neutral-900/40 backdrop-blur-xl border-neutral-800 p-6">
           <h2 className="text-xl font-semibold mb-6">Transaction History</h2>
           
           <div className="space-y-3">
@@ -216,7 +216,7 @@ export default function Credits() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3 + index * 0.05 }}
-                className="bg-white/5 border border-white/10 rounded-lg p-4 hover:bg-white/10 transition-all"
+                className="bg-neutral-900/40 border border-neutral-800 rounded-lg p-4 hover:bg-neutral-900/60 transition-all"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex items-start gap-3 flex-1">
@@ -224,7 +224,7 @@ export default function Credits() {
                     <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${
                       transaction.type === 'earned'
                         ? 'bg-green-500/20 text-green-400'
-                        : 'bg-blue-500/20 text-blue-400'
+                        : 'bg-brand-primary/20 text-brand-primary'
                     }`}>
                       {transaction.type === 'earned' ? (
                         <ArrowUpRight className="w-5 h-5" />
@@ -238,10 +238,10 @@ export default function Credits() {
                       <div className="flex items-start justify-between gap-2 mb-1">
                         <div>
                           <h3 className="font-medium">{transaction.skill}</h3>
-                          <p className="text-sm text-gray-400">{transaction.description}</p>
+                          <p className="text-sm text-neutral-400">{transaction.description}</p>
                         </div>
                       </div>
-                      <div className="flex flex-wrap gap-3 text-xs text-gray-500 mt-2">
+                      <div className="flex flex-wrap gap-3 text-xs text-neutral-500 mt-2">
                         <span className="flex items-center gap-1">
                           👤 {transaction.partner}
                         </span>
@@ -261,12 +261,12 @@ export default function Credits() {
                   <div className={`text-right flex-shrink-0 ${
                     transaction.type === 'earned'
                       ? 'text-green-400'
-                      : 'text-blue-400'
+                      : 'text-brand-primary'
                   }`}>
                     <p className="text-xl font-bold">
                       {transaction.type === 'earned' ? '+' : '-'}{transaction.amount}
                     </p>
-                    <p className="text-xs text-gray-500">credits</p>
+                    <p className="text-xs text-neutral-500">credits</p>
                   </div>
                 </div>
               </motion.div>
@@ -282,7 +282,7 @@ export default function Credits() {
         transition={{ delay: 0.6 }}
         className="mt-8 bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-4"
       >
-        <p className="text-sm text-gray-300">
+        <p className="text-sm text-neutral-300">
           💰 <strong>How Credits Work:</strong> Every minute you spend in a session (teaching or learning) 
           earns you 1 credit. A 60-minute session = 60 credits. Use credits to book learning sessions with 
           other users. The system ensures fair exchange—both participants always earn equal credits!

@@ -112,10 +112,10 @@ export default function Sessions() {
         className="mb-8"
       >
         <h1 className="text-3xl mb-2 flex items-center gap-2">
-          <Video className="w-8 h-8 text-blue-400" />
+          <Video className="w-8 h-8 text-brand-primary" />
           My Sessions
         </h1>
-        <p className="text-gray-400">
+        <p className="text-neutral-400">
           Manage your learning and teaching sessions
         </p>
       </motion.div>
@@ -127,13 +127,13 @@ export default function Sessions() {
         transition={{ delay: 0.1 }}
         className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8"
       >
-        <Card className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 border-blue-500/30 p-6">
+        <Card className="bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 border-brand-primary/30 p-6">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-3xl font-bold">{upcomingSessions.length}</p>
-              <p className="text-sm text-gray-400">Upcoming Sessions</p>
+              <p className="text-sm text-neutral-400">Upcoming Sessions</p>
             </div>
-            <Calendar className="w-10 h-10 text-blue-400" />
+            <Calendar className="w-10 h-10 text-brand-primary" />
           </div>
         </Card>
 
@@ -141,7 +141,7 @@ export default function Sessions() {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-3xl font-bold">{completedSessions.length}</p>
-              <p className="text-sm text-gray-400">Completed Sessions</p>
+              <p className="text-sm text-neutral-400">Completed Sessions</p>
             </div>
             <CheckCircle2 className="w-10 h-10 text-green-400" />
           </div>
@@ -153,7 +153,7 @@ export default function Sessions() {
               <p className="text-3xl font-bold">
                 {completedSessions.reduce((acc, s) => acc + (s.creditsEarned || 0), 0)}
               </p>
-              <p className="text-sm text-gray-400">Credits Earned</p>
+              <p className="text-sm text-neutral-400">Credits Earned</p>
             </div>
             <Clock className="w-10 h-10 text-yellow-400" />
           </div>
@@ -167,7 +167,7 @@ export default function Sessions() {
         transition={{ delay: 0.2 }}
       >
         <Tabs defaultValue="upcoming" className="w-full">
-          <TabsList className="bg-white/5 border border-white/10">
+          <TabsList className="bg-neutral-900/40 border border-neutral-800">
             <TabsTrigger value="upcoming">
               Upcoming ({upcomingSessions.length})
             </TabsTrigger>
@@ -179,15 +179,15 @@ export default function Sessions() {
           {/* Upcoming Sessions */}
           <TabsContent value="upcoming" className="mt-6 space-y-4">
             {upcomingSessions.length === 0 ? (
-              <Card className="bg-white/5 backdrop-blur-xl border-white/10 p-12 text-center">
-                <AlertCircle className="w-16 h-16 text-gray-500 mx-auto mb-4" />
+              <Card className="bg-neutral-900/40 backdrop-blur-xl border-neutral-800 p-12 text-center">
+                <AlertCircle className="w-16 h-16 text-neutral-500 mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-2">No upcoming sessions</h3>
-                <p className="text-gray-400 mb-4">
+                <p className="text-neutral-400 mb-4">
                   Connect with learning partners to schedule your first session!
                 </p>
                 <Button
                   onClick={() => window.location.href = '/dashboard/matching'}
-                  className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600"
+                  className="bg-gradient-to-r from-brand-primary to-brand-secondary hover:from-brand-primary hover:to-brand-secondary"
                 >
                   Find Matches
                 </Button>
@@ -200,21 +200,21 @@ export default function Sessions() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <Card className="bg-white/5 backdrop-blur-xl border-white/10 p-6 hover:bg-white/10 transition-all">
+                  <Card className="bg-neutral-900/40 backdrop-blur-xl border-neutral-800 p-6 hover:bg-neutral-900/60 transition-all">
                     <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
                       <div className="flex-1">
                         <div className="flex items-center gap-3 mb-2">
                           <h3 className="text-xl font-semibold">{session.skill}</h3>
                           <span className={`text-xs px-2 py-1 rounded-full ${
                             session.type === 'learning' 
-                              ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30' 
+                              ? 'bg-brand-primary/20 text-brand-primary border border-brand-primary/30' 
                               : 'bg-green-500/20 text-green-400 border border-green-500/30'
                           }`}>
                             {session.type === 'learning' ? '📚 Learning' : '👨‍🏫 Teaching'}
                           </span>
                         </div>
-                        <p className="text-gray-400 mb-3">with {session.partner}</p>
-                        <div className="flex flex-wrap gap-4 text-sm text-gray-400">
+                        <p className="text-neutral-400 mb-3">with {session.partner}</p>
+                        <div className="flex flex-wrap gap-4 text-sm text-neutral-400">
                           <span className="flex items-center gap-2">
                             <Calendar className="w-4 h-4" />
                             {new Date(session.date).toLocaleDateString('en-US', { 
@@ -246,9 +246,9 @@ export default function Sessions() {
 
                     {/* Meeting Link Display */}
                     {session.meetingLink && (
-                      <div className="mt-4 pt-4 border-t border-white/10">
-                        <p className="text-xs text-gray-400 mb-1">Meeting Link:</p>
-                        <div className="bg-white/5 rounded px-3 py-2 text-sm text-blue-400 font-mono">
+                      <div className="mt-4 pt-4 border-t border-neutral-800">
+                        <p className="text-xs text-neutral-400 mb-1">Meeting Link:</p>
+                        <div className="bg-neutral-900/40 rounded px-3 py-2 text-sm text-brand-primary font-mono">
                           {session.meetingLink}
                         </div>
                       </div>
@@ -262,10 +262,10 @@ export default function Sessions() {
           {/* Session History */}
           <TabsContent value="history" className="mt-6 space-y-4">
             {completedSessions.length === 0 ? (
-              <Card className="bg-white/5 backdrop-blur-xl border-white/10 p-12 text-center">
-                <CheckCircle2 className="w-16 h-16 text-gray-500 mx-auto mb-4" />
+              <Card className="bg-neutral-900/40 backdrop-blur-xl border-neutral-800 p-12 text-center">
+                <CheckCircle2 className="w-16 h-16 text-neutral-500 mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-2">No session history yet</h3>
-                <p className="text-gray-400">
+                <p className="text-neutral-400">
                   Complete your first session to see it here!
                 </p>
               </Card>
@@ -277,7 +277,7 @@ export default function Sessions() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <Card className="bg-white/5 backdrop-blur-xl border-white/10 p-6 hover:bg-white/10 transition-all">
+                  <Card className="bg-neutral-900/40 backdrop-blur-xl border-neutral-800 p-6 hover:bg-neutral-900/60 transition-all">
                     <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
                       <div className="flex-1">
                         <div className="flex items-center gap-3 mb-2">
@@ -285,14 +285,14 @@ export default function Sessions() {
                           <h3 className="text-xl font-semibold">{session.skill}</h3>
                           <span className={`text-xs px-2 py-1 rounded-full ${
                             session.type === 'learning' 
-                              ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30' 
+                              ? 'bg-brand-primary/20 text-brand-primary border border-brand-primary/30' 
                               : 'bg-green-500/20 text-green-400 border border-green-500/30'
                           }`}>
                             {session.type === 'learning' ? '📚 Learned' : '👨‍🏫 Taught'}
                           </span>
                         </div>
-                        <p className="text-gray-400 mb-3">with {session.partner}</p>
-                        <div className="flex flex-wrap gap-4 text-sm text-gray-400">
+                        <p className="text-neutral-400 mb-3">with {session.partner}</p>
+                        <div className="flex flex-wrap gap-4 text-sm text-neutral-400">
                           <span className="flex items-center gap-2">
                             <Calendar className="w-4 h-4" />
                             {new Date(session.date).toLocaleDateString('en-US', { 
@@ -317,7 +317,7 @@ export default function Sessions() {
                         <Button
                           onClick={() => handleRequestAgain(session)}
                           variant="outline"
-                          className="border-white/10 hover:bg-white/5 group"
+                          className="border-neutral-800 hover:bg-neutral-900/40 group"
                         >
                           <RotateCcw className="w-4 h-4 mr-2 group-hover:rotate-180 transition-transform duration-500" />
                           Request Again
@@ -337,9 +337,9 @@ export default function Sessions() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
-        className="mt-8 bg-blue-500/10 border border-blue-500/30 rounded-lg p-4"
+        className="mt-8 bg-brand-primary/10 border border-brand-primary/30 rounded-lg p-4"
       >
-        <p className="text-sm text-gray-300">
+        <p className="text-sm text-neutral-300">
           💡 <strong>Session Credits:</strong> Both participants earn equal credits based on session duration 
           (60 min session = 60 credits each). Credits are automatically added after session completion. 
           You can request additional sessions with the same partner from your history!
