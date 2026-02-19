@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden gradient-bg">
+    <section className="relative min-h-screen flex items-center justify-center pt-32 pb-16 overflow-hidden gradient-bg">
       {/* Animated background particles */}
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(20)].map((_, i) => (
@@ -141,7 +141,7 @@ export function HeroSection() {
           <div className="relative hidden lg:block h-[600px]">
             <FloatingCard
               delay={0.2}
-              className="absolute top-0 right-0"
+              className="absolute top-20 right-0"
               title="Profile"
               content={
                 <div className="flex items-center gap-3">
@@ -163,7 +163,7 @@ export function HeroSection() {
 
             <FloatingCard
               delay={0.4}
-              className="absolute top-32 left-0"
+              className="absolute top-52 left-0"
               title="Skill Listing"
               content={
                 <div>
